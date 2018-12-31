@@ -2,10 +2,6 @@ import React, { Component } from 'react';
 import Movie from './Movie';
 
 
-
-
-
-
 const movies = [
   {
     id:1,
@@ -29,10 +25,26 @@ const movies = [
   }
 ];
 
+
 class App extends Component {
+  state={
+    greeting:"hello"
+  }
+
+  componentWillMount() {
+    setTimeout(() => {
+      this.setState({
+        greeting: "hello again"
+      })
+    }, 5000)
+  }
+
+
   render() {
+    
     return (
       <div>
+        {this.state.greeting}
        {movies.map((movie, key)=>{
          return <Movie title={movie.title} poster={movie.poster} key={key}
          />
