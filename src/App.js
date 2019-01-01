@@ -1,6 +1,6 @@
 import React, { Component } from 'react';  
 import Movie from './Movie';
-
+import "./App.css";
 class App extends Component {
   state = {   
   }
@@ -34,7 +34,7 @@ class App extends Component {
 
   _callApi = ()=>{
     return (
-      fetch("https://yts.am/api/v2/list_movies.json?quality=3D?sort_by=like_count")
+      fetch("https://yts.am/api/v2/list_movies.json?quality=3D?sort_by=download_count")
         .then(response => response.json())
         .then(json => json.data.movies)
         //.then(json => console.log(json))
@@ -44,9 +44,9 @@ class App extends Component {
 
 
   render() {
-  
+  const{movies} = this.state; // ==> 이거는 이거와 같다. this.state.movies
     return (
-      <div>
+      <div className={movies ? "App" : "App--loading"}>
         {this.state.movies ? this._renderMovies() : "Loding"}
       </div>
     );
