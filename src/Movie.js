@@ -2,8 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import LinesEllipsis from 'react-lines-ellipsis'
 import './Movie.css';
-
+//check
 function Movie({ title, poster, genres, synopsis }) {
+    console.log({title,genres, poster,synopsis});
     return (
         <div className="Movie">
             <div className="Movie__Column">
@@ -29,13 +30,17 @@ function Movie({ title, poster, genres, synopsis }) {
 }
 
 function MoviePoster({ poster, alt }) {
+    
     return (
+
         <img src={poster} alt={alt} title={alt} className="Movie__Poster" />
     )
 }
 
 function MovieGenre({ genre }) {
+    //console.log({genre})
     return (
+
         <span className="Movie__Genre">{genre}</span>
     )
 }
